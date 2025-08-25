@@ -1,0 +1,56 @@
+<div class="dashboard-container">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-content"></div>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <div class="content-wrapper">
+      <!-- Left Side -->
+      <div class="left-section">
+        <!-- Company Info -->
+        <div class="company-info">
+          <h1 class="company-name">LeadSquared</h1>
+          <p class="company-tagline">ABC Insurance Agency Portal</p>
+        </div>
+
+        <!-- My Referrals Section -->
+        <div class="my-referrals-section">
+          <!-- Title and Action Buttons on same line -->
+          <div class="referrals-header">
+            <h2 class="section-title">My Referrals</h2>
+            <div class="action-buttons">
+              <button class="btn btn-primary">Raise Query</button>
+              <button class="btn btn-primary">My Incentive</button>
+              <button class="btn btn-primary">Add New Referrals</button>
+            </div>
+          </div>
+
+          <!-- Metric Cards -->
+          <div class="metric-cards">
+            <app-metric-card 
+              *ngFor="let card of metricCards"
+              [label]="card.label"
+              [value]="card.value"
+              [color]="card.color">
+            </app-metric-card>
+          </div>
+
+          <!-- Referral Table -->
+          <app-referral-table 
+            [referrals]="referrals"
+            [entriesPerPage]="entriesPerPage">
+          </app-referral-table>
+        </div>
+      </div>
+
+      <!-- Right Side - Add New Referral Form -->
+      <div class="right-section">
+        <app-add-referral-form 
+          (referralAdded)="onReferralAdded($event)">
+        </app-add-referral-form>
+      </div>
+    </div>
+  </div>
+</div>

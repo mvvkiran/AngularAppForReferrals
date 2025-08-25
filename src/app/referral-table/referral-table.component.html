@@ -1,0 +1,44 @@
+<div class="table-container">
+  <!-- Entries Selector -->
+  <div class="table-controls">
+    <div class="entries-selector">
+      <span>Show entries</span>
+      <select [(ngModel)]="entriesPerPage" class="entries-dropdown">
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <table class="referral-table">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>stage</th>
+        <th>Email</th>
+        <th>Plan</th>
+        <th>Premium</th>
+        <th>mobile#</th>
+        <th>Created on</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let referral of referrals">
+        <td>{{ referral.fullName }}</td>
+        <td>
+          <span class="stage-badge" [ngClass]="'stage-' + referral.stage.toLowerCase()">
+            {{ referral.stage }}
+          </span>
+        </td>
+        <td>{{ referral.email }}</td>
+        <td>{{ referral.plan }}</td>
+        <td>${{ referral.premium }}</td>
+        <td>{{ referral.mobile }}</td>
+        <td>{{ referral.createdOn }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
