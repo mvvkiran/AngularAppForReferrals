@@ -96,6 +96,6 @@
 
 .metric-cards {
   display: flex;
-  gap: 20px;
+  gap: 50px;
   margin-bottom: 30px;
 }
